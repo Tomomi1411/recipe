@@ -1,2 +1,47 @@
-<h1>Gourmets#edit</h1>
-<p>Find me in app/views/gourmets/edit.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        料理編集
+      </h1>
+    </div>
+  </div>
+</section>
+
+<% if @gourmet.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= pluralize(@gourmet.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @gourmet.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_for @gourmet do|f|%>
+         <div class="field">
+          <%= f.label :titel %>
+          <%= f.text_field :title, class: "input"%>
+         </div>
+
+         <div class="field">
+          <%= f.label :body, "感想", class: "label" %>
+          <%= f.text_area :body, class: "textarea" %>
+         </div>
+
+         <div class="field">
+          <%= f.label :image, "写真", class: "label" %>
+          <%= f.attachment_field :image, class: "input" %>
+         </div>
+
+         <%= f.submit '更新', class: "button is-success" %>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</section>

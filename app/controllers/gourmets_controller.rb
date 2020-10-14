@@ -1,7 +1,7 @@
 class GourmetsController < ApplicationController
 
   def index
-
+    @gourmets = Gourmet.all
   end
   
   def show
@@ -20,10 +20,14 @@ class GourmetsController < ApplicationController
   end
   
 
-  
+  def update
+    @gourmet = Gourmet.find(params[:id])
+    @gourmet.update(gourmet_params)
+    redirect_to gourmet_path(@gourmet)
+  end
 
   def edit
-    
+    @gourmet = Gourmet.find(params[:id])
   end
   
   private

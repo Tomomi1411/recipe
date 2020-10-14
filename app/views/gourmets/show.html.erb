@@ -34,7 +34,7 @@
                 </tr>
               </table>
               <% if @gourmet.user.id == current_user.id %>
-                <%= link_to "編集画面へ", edit_gourmet_path(@gourmet), class: "button is-success" %>
+                <%= link_to "編集", edit_gourmet_path(@gourmet), class: "button is-success" %>
               <% end %>
             </div>
           </div>
