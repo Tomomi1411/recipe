@@ -15,8 +15,11 @@ class GourmetsController < ApplicationController
   def create
     @gourmet = Gourmet.new(gourmet_params)
     @gourmet.user_id = current_user.id
-    @gourmet.save
-    redirect_to gourmet_path(@gourmet)
+    if @gourmet.save
+      redirect_to gourmet_path(@gourmet), notice: '更新に成功しました。'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -29,8 +32,11 @@ class GourmetsController < ApplicationController
 
   def update
     @gourmet = Gourmet.find(params[:id])
-    @gourmet.update(gourmet_params)
-    redirect_to gourmet_path(@gourmet)
+    if @gourmet.update(gourmet_params)
+      redirect_to gourmet_path(@gourmet), notice: '更新に成功しました。'
+    else
+      render :edit
+    end
   end
 
   def destroy
