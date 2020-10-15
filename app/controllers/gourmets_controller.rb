@@ -1,5 +1,5 @@
 class GourmetsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index]
   def index
     @gourmets = Gourmet.all
   end
@@ -21,6 +21,9 @@ class GourmetsController < ApplicationController
 
   def edit
     @gourmet = Gourmet.find(params[:id])
+    if @gourmet.user != current_user
+      redirect_to gourmets_path, alert: '不正なアクセスです。'
+    end
   end
   
 
