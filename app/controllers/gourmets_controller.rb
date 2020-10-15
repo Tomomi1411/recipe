@@ -18,6 +18,10 @@ class GourmetsController < ApplicationController
     @gourmet.save
     redirect_to gourmet_path(@gourmet)
   end
+
+  def edit
+    @gourmet = Gourmet.find(params[:id])
+  end
   
 
   def update
@@ -26,9 +30,12 @@ class GourmetsController < ApplicationController
     redirect_to gourmet_path(@gourmet)
   end
 
-  def edit
-    @gourmet = Gourmet.find(params[:id])
+  def destroy
+    gourmet = Gourmet.find(params[:id])
+    gourmet.destroy
+    redirect_to gourmets_path
   end
+
   
   private
   def gourmet_params
