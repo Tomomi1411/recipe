@@ -38,7 +38,7 @@
       <% if user_signed_in? %>
         <div id="navbarExampleTransparentExample" class="navbar-menu ">
           <div class="navbar-item">
-            <%= link_to "お店一覧", gourmets_path, class: "navbar-item button is-warning is-light"%>
+            <%= link_to "投稿一覧", gourmets_path, class: "navbar-item button is-warning is-light"%>
           </div>
           <div class="navbar-item">
             <%= link_to "新規投稿", new_gourmet_path, class: "navbar-item button is-warning is-light"%>
@@ -63,7 +63,7 @@
       <% else %>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
-              <%= link_to "お店一覧", gourmets_path, class: "navbar-item button is-warning is-light"%>
+              <%= link_to "一覧", gourmets_path, class: "navbar-item button is-warning is-light"%>
           </div>
           <div class="navbar-item">
             <%= link_to "GourKen members", users_path, class: "navbar-item button is-warning is-light" %>

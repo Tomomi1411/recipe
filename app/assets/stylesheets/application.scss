@@ -22,12 +22,11 @@
 
 .profile_image {
   border-radius : 50%;
-
 }
 
 .main-image {
-  height: 940px;
+  height: 520px;
   background-image: url(meal.png);
   background-repeat: none;
-  background-size: contain;
+  background-size: 80% 100%;
 }
