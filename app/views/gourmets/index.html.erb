@@ -1,0 +1,45 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        投稿一覧
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @gourmets.each do |gourmet| %>
+        <div class="column is-4">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <%= link_to gourmet_path(gourmet) do %>
+                    <%= attachment_image_tag gourmet, :image %>
+                  <% end %>
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                     
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="title"><%=link_to gourmet.user.username, user_path(gourmet.user) %></div>
+                  </div>
+              </div>
+
+              <div class="content">
+                <time><%= gourmet.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
