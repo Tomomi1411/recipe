@@ -6,8 +6,7 @@ ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.4'
-gem 'mysql2', '>= 0.4.4'
+gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -55,9 +54,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-# gem "refile", require: "refile/rails", github: 'manfe/refile'
-# gem "refile-mini_magick"
-# gem "bulma-rails"
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem "bulma-rails"
 group :production do
   gem 'rails_12factor'
 end
